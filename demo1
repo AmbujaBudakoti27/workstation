@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workstation Furniture Sale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #1e1e2e;
+            color: #ffffff;
+        }
+        h1, h2 {
+            color: #ff006e;
+        }
+        .slider {
+            width: 80%;
+            margin: auto;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .form-container {
+            margin: 20px auto;
+            width: 50%;
+            padding: 20px;
+            background: #ffbe0b;
+            border-radius: 10px;
+            color: #000;
+        }
+        .comparison {
+            margin: 20px auto;
+            width: 80%;
+            background: #8338ec;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #3a86ff;
+            color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ff006e;
+        }
+        button {
+            background: #3a86ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #ff006e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Workstation Furniture Sale</h1>
+    <p>Buy premium secondhand tables and chairs in top condition at affordable prices!</p>
+    
+    <div class="slider">
+        <img src="furniture1.jpg" alt="Table & Chair">
+        <img src="furniture2.jpg" alt="Workstation Setup">
+        <img src="furniture3.jpg" alt="Ergonomic Chair">
+    </div>
+    
+    <div class="form-container">
+        <h2>Get More Information</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div class="comparison">
+        <h2>Why Buy Instead of Rent?</h2>
+        <table>
+            <tr>
+                <th>Option</th>
+                <th>Buying from Us</th>
+                <th>Renting (Furlenco/RentoMojo)</th>
+            </tr>
+            <tr>
+                <td>Cost for 1 Year</td>
+                <td>₹5,000 (One-Time)</td>
+                <td>₹12,000 (₹1,000/month)</td>
+            </tr>
+            <tr>
+                <td>Condition</td>
+                <td>Like New</td>
+                <td>Used by Multiple Users</td>
+            </tr>
+            <tr>
+                <td>Ownership</td>
+                <td>You Own It</td>
+                <td>Return After Rent Period</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone })
+            })
+            .then(response => response.json())
+            .then(data => alert('Details Submitted Successfully!'))
+            .catch(error => alert('Error submitting details!'));
+        });
+    </script>
+</body>
+</html>
